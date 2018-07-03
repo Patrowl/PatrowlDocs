@@ -1,4 +1,4 @@
-![PatrOwl](https://github.com/Patrowl/PatrowlDocs/blob/master/images/logos/logo-patrowl-light-shadow.png)
+![PatrOwl](https://github.com/Patrowl/PatrowlDocs/blob/master/images/logos/logo-patrowl-light.png)
 
 [![Join the chat at https://gitter.im/Patrowl/Support](https://badges.gitter.im/Patrowl/Support.png)](https://gitter.im/Patrowl/Support)
 
@@ -9,7 +9,7 @@
 **PatrowlEngines** is the engine framework and the supported list of engines performing the operations (scans, searches, API calls, ...) on due time.
 
 # What's the content in this repository ?
-* Documentationfor PatrowlManager and PatrowlEngines
+* Documentation for PatrowlManager and PatrowlEngines
   - [Installation Guide](installation/installation-guide.md)
   - [User Guide ](installation/user-guide.md)
   - [Useful Commands](installation/userful-commands.md)
@@ -30,3 +30,6 @@ Please see our [Code of conduct](https://github.com/Patrowl/PatrowlDocs/blob/mas
 Please [open an issue on GitHub](https://github.com/Patrowl/PatrowlManager/issues) if you'd like to report a bug or request a feature. We are also available on [Gitter](https://gitter.im/Patrowl/Support) to help you out.
 
 If you need to contact the project team, send an email to <getsupport@patrowl.io>.
+
+# Copyright
+Copyright (C) 2018 Nicolas MATTIOCCO  ([@MaKyOtOx](https://twitter.com/MaKyOtOx) - nicolas@greenlock.fr)
