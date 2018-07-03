@@ -179,4 +179,4 @@ scripts/start-engines.sh
 
 
 ## Useful commands
-+ See the __[Useful Commands](install/useful-commands.md)__ guide
++ See the __[Useful Commands](useful-commands.md)__ guide
