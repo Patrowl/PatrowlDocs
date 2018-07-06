@@ -26,6 +26,7 @@ The PatrowlManager application is reacheable using the embedded WEB interface or
 ![Create new asset - Form](../images/userguide/addNewAsset-2.png)
 
 Some tips:
+
 Parameters | Description | Examples
 ---------- | ----------- | -----------
 `Value` | Value of the asset  | *8.8.8.8*, *patrowl.io*, *myorg.local*, *https://app.patrowl.io*
