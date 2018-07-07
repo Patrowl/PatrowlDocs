@@ -80,26 +80,25 @@ If you open another terminal, please enter in the virtualenv with the command `s
   - DB settings (service location and credentials): `DATABASES`,
   - RabbitMQ settings (service location and credentials): `BROKER_URL`,
 	- Email settings (alerting): `EMAIL_HOST`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `EMAIL_HOST_PORT`
-+ Create the Django superuser:
-```
-python manage.py createsuperuser
-```
-> Please keep these credentials in a safe place. This account will be used for the first login on the PatrOwl Manager application
 
 ##### 5. Configure, create and populate the database
-+ Edit file the `var/db/create_user_and_db.sql` and update the user and password values (default values are: PATROWL_DB_USER and PATROWL_DB_PASSWD_TO_CHANGE)
-
-+ Execute the SQL script:
++ Set next attributes for POSTGRES_USER:
 ```
-psql -U postgres < var/db/create_user_and_db.sql
+ALTER ROLE POSTGRES_USER SET client_encoding TO 'utf8';
+ALTER ROLE POSTGRES_USER SET default_transaction_isolation TO 'read committed';
+ALTER ROLE POSTGRES_USER SET timezone TO 'UTC';
 ```
-+ Update the configuration file `app/settings.py` with these db credentials
 
 + Create the db schema using the Django commands:
 ```
 python manage.py makemigrations
 python manage.py migrate
 ```
++ Create the Django superuser:
+```
+python manage.py createsuperuser
+```
+> Please keep these credentials in a safe place. This account will be used for the first login on the PatrOwl Manager application
 
 + Populate the db with default data (AssetCategory, EnginePolicy, ...)
 ```
