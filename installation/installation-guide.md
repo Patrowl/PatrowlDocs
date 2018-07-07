@@ -84,9 +84,9 @@ If you open another terminal, please enter in the virtualenv with the command `s
 ##### 5. Configure, create and populate the database
 + Set next attributes for POSTGRES_USER:
 ```
-ALTER ROLE PATROWL_DB_USER SET client_encoding TO 'utf8';
-ALTER ROLE PATROWL_DB_USER SET default_transaction_isolation TO 'read committed';
-ALTER ROLE PATROWL_DB_USER SET timezone TO 'UTC';
+ALTER ROLE POSTGRES_USER SET client_encoding TO 'utf8';
+ALTER ROLE POSTGRES_USER SET default_transaction_isolation TO 'read committed';
+ALTER ROLE POSTGRES_USER SET timezone TO 'UTC';
 ```
 
 + Create the db schema using the Django commands:
