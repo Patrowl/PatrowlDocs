@@ -27,7 +27,7 @@ Information, news and updates are regularly posted on [Patrowl.io  Twitter accou
 Please see our [Code of conduct](https://github.com/Patrowl/PatrowlDocs/blob/master/docs/support/code_of_conduct.md). We welcome your contributions. Please feel free to fork the code, play with it, make some patches and send us pull requests via [issues](https://github.com/Patrowl/PatrowlManager/issues).
 
 # Support
-Please [open an issue on GitHub](https://github.com/Patrowl/PatrowlManager/issues) if you'd like to report a bug or request a feature. We are also available on [Gitter](https://gitter.im/Patrowl/Support) to help you out.
+Please [open an issue on GitHub](https://github.com/Patrowl/PatrowlDocs/issues) if you'd like to report a bug or request a feature. We are also available on [Gitter](https://gitter.im/Patrowl/Support) to help you out.
 
 If you need to contact the project team, send an email to <getsupport@patrowl.io>.
 

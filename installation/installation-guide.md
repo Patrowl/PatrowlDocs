@@ -16,10 +16,6 @@ Before installing PatrOwl, you need to choose the installation option which suit
 PatrOwl-Manager uses PosgreSQL to store data. We recommend using a virtual machine with at least 4vCPU, 8 GB of RAM and 60 GB of disk. You can also use a physical machine with similar specifications.
 
 ## PatrowlManager Deployment Steps
-### Download PatrowlManager from GitHub
-```
-git clone https://github.com/Patrowl/PatrowlManager.git
-```
 
 ### Install and deploy Backend from Docker
 @In progress (Docker Compose)
@@ -27,7 +23,7 @@ git clone https://github.com/Patrowl/PatrowlManager.git
 ### Install and deploy Backend from Sources
 The following section contains a step-by-step guide to build PatrOwl from its sources.
 
-#### 1. Pre-requisites
+#### 1. Install system pre-requisites
 The following software are required to download and run PatrOwl:
 + [PosgreSQL](https://www.postgresql.org/download/)
 + [GIT](http://www.git-scm.com/downloads)
@@ -51,7 +47,7 @@ sudo python -m ensurepip
 sudo pip install virtualenv
 ```
 
-###### 2.2. Ubuntu 16.04+
+###### 2.2. Ubuntu 16.04/18.04
 ```
 apt-get install git python python-pip virtualenv rabbitmq-server postgresql
 ```
@@ -61,45 +57,71 @@ apt-get install git python python-pip virtualenv rabbitmq-server postgresql
 yum install -y git python python-pip python-virtualenv rabbitmq-server postgresql
 ```
 
-##### 3. Install python dependencies
+##### 3. Download PatrowlManager from GitHub
+```
+git clone https://github.com/Patrowl/PatrowlManager.git
+```
+
+##### 4. Install python dependencies
 ```
 cd PatrowlManager
 python2.7 -m virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
 ```
-> Be careful, next commands MUST be launched within the python virtual environment. The prefix `(env)` should appear in the command prompt. Ex:
+> Note 1: if `python2.7 -m virtualenv env` does not work, please consider the command `virtualenv env` but ensure that Python2 is selected.  
+> Note 2: Be careful, next commands MUST be launched within the python virtual environment. The prefix `(env)` should appear in the command prompt. Ex:
 ```
 (env) GreenLock@GL01:PatrowlManager$ ls
 ```
-If you open another terminal, please enter in the virtualenv with the command `source env/bin/activate`.
+If you open another terminal, please enter in the virtualenv with the command `source env/bin/activate`. If you want to exit the virtual environment, use the command `deactivate`.
 
-##### 4. Begin backend configuration
-+ Copy `app/settings.py.sample` to `app/settings.py` and update at least following options:
-	- Application settings `ALLOWED_HOSTS`, `LOGGING_LEVEL`, `PROXIES`, `SECRET_KEY`,
-  - DB settings (service location and credentials): `DATABASES`,
-  - RabbitMQ settings (service location and credentials): `BROKER_URL`,
-	- Email settings (alerting): `EMAIL_HOST`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `EMAIL_HOST_PORT`
-+ Create the Django superuser:
-```
-python manage.py createsuperuser
-```
-> Please keep these credentials in a safe place. This account will be used for the first login on the PatrOwl Manager application
-
-##### 5. Configure, create and populate the database
+##### 5. Create the PosgreSQL database
+###### Method 1 (fast but unsecure)
 + Edit file the `var/db/create_user_and_db.sql` and update the user and password values (default values are: PATROWL_DB_USER and PATROWL_DB_PASSWD_TO_CHANGE)
 
 + Execute the SQL script:
 ```
-psql -U postgres < var/db/create_user_and_db.sql
+sudo -u postgres psql < var/db/create_user_and_db.sql
 ```
-+ Update the configuration file `app/settings.py` with these db credentials
 
+###### Method 2 (slow but more secure)
++ Connect to the PostgreSQL CLI `psql`:
+```
+sudo -u postgres psql -U postgres -h localhost
+```
+
++ Create the user and database:
+```
+CREATE USER "PATROWL_DB_USER" WITH PASSWORD 'PATROWL_DB_PASSWD_TO_CHANGE';
+CREATE DATABASE "patrowl_db" WITH OWNER "PATROWL_DB_USER";
+```
+
++ Set next attributes for PATROWL_DB_USER
+```
+ALTER ROLE "PATROWL_DB_USER" SET client_encoding TO 'utf8';
+ALTER ROLE "PATROWL_DB_USER" SET default_transaction_isolation TO 'read committed';
+ALTER ROLE "PATROWL_DB_USER" SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE "patrowl_db" TO "PATROWL_DB_USER";
+```
+
+##### 6. Configure PatrowlManager Django application
++ Copy `app/settings.py.sample` to `app/settings.py` and update at least following options:
+  * Application settings `ALLOWED_HOSTS`, `LOGGING_LEVEL`, `PROXIES`, `SECRET_KEY`
+  * DB settings (service location and credentials): `DATABASES`,  
+  * RabbitMQ settings (service location and credentials): `BROKER_URL` (default values are `guest/guest`),
+  * Email settings (alerting): `EMAIL_HOST`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `EMAIL_HOST_PORT`
 + Create the db schema using the Django commands:
 ```
 python manage.py makemigrations
 python manage.py migrate
 ```
+
++ Create the Django superuser:
+```
+python manage.py createsuperuser
+```
+> Please keep these credentials in a safe place. This account will be used for the first login on the PatrOwl Manager application
 
 + Populate the db with default data (AssetCategory, EnginePolicy, ...)
 ```
@@ -109,7 +131,7 @@ python manage.py loaddata var/data/engines.EnginePolicyScope.json
 python manage.py loaddata var/data/engines.EnginePolicy.json
 ```
 
-##### 6. Start the Django backend server
+##### 7. Start the Django backend server
 ```
 supervisord -c var/etc/supervisord.conf
 python manage.py runserver_plus 0.0.0.0:8000
@@ -131,8 +153,8 @@ Please refer to the README files from each engine directory.
 #### 2. Build the Docker images
 + Build the Docker images separately. Ex:
 ```
-cd engines/nmap
-docker build --quiet --tag "patrowl-nmap" .
+cd engines/virustotal
+docker build --quiet --tag "patrowl-virustotal" .
 ```
 + Or, using the script `scripts/build-docker-engines.sh` to build all docker containers:
 ```
@@ -168,9 +190,8 @@ pip install -r requirements.txt
 #### 2. Start the PatrOwl engines
 Start engines one-by-one (within the current engine virtualenv). Ex:
 ```
-sudo python engine-nmap.py [--host=0.0.0.0 --port=5001 --debug] &
+sudo python engine-virustotal.py [--host=0.0.0.0] [--port=5007] [--debug] &
 ```
-> Note: the nmap engine requires root privileges
 
 Or, start all engines using the script `start-engines.sh`:
 ```
