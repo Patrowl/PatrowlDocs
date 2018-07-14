@@ -47,9 +47,12 @@ sudo python -m ensurepip
 sudo pip install virtualenv
 ```
 
-###### 2.2. Ubuntu 16.04/18.04
+###### 2.2. Ubuntu 16.04/18.04 LTS
 ```
-apt-get install git python python-pip virtualenv rabbitmq-server postgresql
+sudo apt install build-essential python2.7-dev git curl rabbitmq-server postgresql
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python get-pip.py
+sudo pip install virtualenv
 ```
 
 ###### 2.3. CentOS/RHEL
@@ -88,7 +91,7 @@ sudo -u postgres psql < var/db/create_user_and_db.sql
 ###### Method 2 (slow but more secure)
 + Connect to the PostgreSQL CLI `psql`:
 ```
-sudo -u postgres psql -U postgres -h localhost
+sudo -u postgres psql
 ```
 
 + Create the user and database:
@@ -174,9 +177,10 @@ scripts/start-docker-engines.sh
 
 ### Deploy Engines from Sources
 ##### 1. Install python dependencies
-Use the script `install-engines.sh` to install all engines and their dependencies:
+Use the script `install-engines.sh` from folder `scripts` to install all engines and their dependencies:
 ```
-scripts/install-engines.sh
+cd scripts
+./install-engines.sh
 ```
 
 or, install manually dependencies for each engine. Ex:
@@ -195,7 +199,7 @@ sudo python engine-virustotal.py [--host=0.0.0.0] [--port=5007] [--debug] &
 
 Or, start all engines using the script `start-engines.sh`:
 ```
-scripts/start-engines.sh
+sudo scripts/start-engines.sh
 ```
 
 
