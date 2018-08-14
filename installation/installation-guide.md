@@ -13,7 +13,7 @@ Before installing PatrOwl, you need to choose the installation option which suit
 + [Useful Commands](#useful-commands)
 
 ## Hardware Pre-requisites
-PatrOwl-Manager uses PosgreSQL to store data. We recommend using a virtual machine with at least 4vCPU, 8 GB of RAM and 60 GB of disk. You can also use a physical machine with similar specifications.
+PatrOwlManager uses PosgreSQL to store data. We recommend using a virtual machine with at least 4vCPU, 8 GB of RAM and 60 GB of disk. You can also use a physical machine with similar specifications.
 
 ## PatrowlManager Deployment Steps
 
@@ -43,8 +43,8 @@ Using `brew`:
 ```
 brew update
 brew install postgres python rabbitmq
-sudo python -m ensurepip
-sudo pip install virtualenv
+python -m ensurepip
+pip install virtualenv
 ```
 
 ###### 2.2. Ubuntu 16.04/18.04 LTS
@@ -80,15 +80,22 @@ pip install -r requirements.txt
 If you open another terminal, please enter in the virtualenv with the command `source env/bin/activate`. If you want to exit the virtual environment, use the command `deactivate`.
 
 ##### 5. Create the PosgreSQL database
-###### Method 1 (fast but unsecure)
+###### 5.1. Method 1 (fast but unsecure)
 + Edit file the `var/db/create_user_and_db.sql` and update the user and password values (default values are: PATROWL_DB_USER and PATROWL_DB_PASSWD_TO_CHANGE)
 
+####### 5.1.1. MacOS
++ Execute the SQL script:
+```
+psql < var/db/create_user_and_db.sql
+```
+
+####### 5.1.2. Ubuntu 16.04/18.04 LTS
 + Execute the SQL script:
 ```
 sudo -u postgres psql < var/db/create_user_and_db.sql
 ```
 
-###### Method 2 (slow but more secure)
+###### 5.2. Method 2 (slow but more secure)
 + Connect to the PostgreSQL CLI `psql`:
 ```
 sudo -u postgres psql
@@ -100,7 +107,7 @@ CREATE USER "PATROWL_DB_USER" WITH PASSWORD 'PATROWL_DB_PASSWD_TO_CHANGE';
 CREATE DATABASE "patrowl_db" WITH OWNER "PATROWL_DB_USER";
 ```
 
-+ Set next attributes for PATROWL_DB_USER
++ Set the next attributes for PATROWL_DB_USER:
 ```
 ALTER ROLE "PATROWL_DB_USER" SET client_encoding TO 'utf8';
 ALTER ROLE "PATROWL_DB_USER" SET default_transaction_isolation TO 'read committed';
@@ -108,7 +115,7 @@ ALTER ROLE "PATROWL_DB_USER" SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE "patrowl_db" TO "PATROWL_DB_USER";
 ```
 
-##### 6. Configure PatrowlManager Django application
+##### 6. Configure PatrowlManager (Django backend) application
 + Copy `app/settings.py.sample` to `app/settings.py` and update at least following options:
   * Application settings `ALLOWED_HOSTS`, `LOGGING_LEVEL`, `PROXIES`, `SECRET_KEY`
   * DB settings (service location and credentials): `DATABASES`,  
@@ -124,9 +131,9 @@ python manage.py migrate
 ```
 python manage.py createsuperuser
 ```
-> Please keep these credentials in a safe place. This account will be used for the first login on the PatrOwl Manager application
+> Please keep these credentials in a safe place. This account will be used for the first login on the PatrowlManager application
 
-+ Populate the db with default data (AssetCategory, EnginePolicy, ...)
++ Populate the db with default data (AssetCategory, EnginePolicy, ...):
 ```
 python manage.py loaddata var/data/assets.AssetCategory.json
 python manage.py loaddata var/data/engines.Engine.json

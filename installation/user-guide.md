@@ -1,5 +1,5 @@
 # User Guide
-After installing and deploying PatrowlManager and at least one PatrowlEngine, you can now fell the power of PatrOwl! Let's go quickly into the heart of the matter with this quick user guide. Detailed documentation will be released soon.
+After installing and deploying PatrowlManager and at least one PatrowlEngine, you can now feel the power of PatrOwl! Let's go quickly into the heart of the matter with this quick user guide. Detailed documentation will be released soon.
 
 
 ## Table of Contents
