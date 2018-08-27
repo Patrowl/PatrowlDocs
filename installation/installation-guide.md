@@ -201,7 +201,7 @@ pip install -r requirements.txt
 #### 2. Start the PatrOwl engines
 Start engines one-by-one (within the current engine virtualenv). Ex:
 ```
-sudo python engine-virustotal.py [--host=0.0.0.0] [--port=5007] [--debug] &
+sudo env/bin/python engine-virustotal.py [--host=0.0.0.0] [--port=5007] [--debug] &
 ```
 
 Or, start all engines using the script `start-engines.sh`:
