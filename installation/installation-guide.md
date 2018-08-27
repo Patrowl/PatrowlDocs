@@ -52,6 +52,7 @@ pip install virtualenv
 sudo apt install build-essential python2.7-dev git curl rabbitmq-server postgresql
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python get-pip.py
+rm get-pip.py
 sudo pip install virtualenv
 ```
 
@@ -183,7 +184,16 @@ scripts/start-docker-engines.sh
 ```
 
 ### Deploy Engines from Sources
-##### 1. Install python dependencies
+##### 1. Install required packages
+```
+sudo apt install build-essential python2.7-dev
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python get-pip.py
+rm get-pip.py
+sudo pip install virtualenv
+```
+
+##### 2. Install python dependencies
 Use the script `install-engines.sh` from folder `scripts` to install all engines and their dependencies:
 ```
 cd scripts
@@ -198,7 +208,7 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-#### 2. Start the PatrOwl engines
+#### 3. Start the PatrOwl engines
 Start engines one-by-one (within the current engine virtualenv). Ex:
 ```
 sudo python engine-virustotal.py [--host=0.0.0.0] [--port=5007] [--debug] &
