@@ -6,6 +6,7 @@ After installing and deploying PatrowlManager and at least one PatrowlEngine, yo
 + [Technical overview](#technical_overview)
 + [Assets](#assets)
   - [Add a new asset](#add_a_new_asset)
+  - [Add new assets in bulk](#add_new_assets_in_bulk)
 + [Engines](#engines)
   - [Add a new engine](#add_a_new_engine)
 + [Scans](#scans)
@@ -37,6 +38,15 @@ Parameters | Description | Examples
 `Categories` | List of tags to quickly describe the asset. Custom values could be added. | *Windows*, *Database*, *Corporate Website*
 
 3. Click to the button "Create a new asset" to confirm the creation. You will be redirected to the assets list.
+
+### Add new assets in bulk
+1. Go to the creation form using the header menu bar or go directly to the URL `/assets/bulkadd`.
+![Create new assets in bulk - Header menu](../images/userguide/addNewAssetBulk-1.png)
+
+2. The following form will be available:
+![Create new assets in bulk - Form](../images/userguide/addNewAssetBulk-2.png)
+
+The CSV template is available here: [Template](https://github.com/Patrowl/PatrowlManager/blob/master/var/data/assets_bulk_import_template.csv)
 
 ## Engines
 ### Add a new Engine
