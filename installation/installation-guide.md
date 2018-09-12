@@ -49,7 +49,7 @@ pip install virtualenv
 
 ###### 2.2. Ubuntu 16.04/18.04 LTS
 ```
-sudo apt install build-essential python2.7-dev git curl rabbitmq-server postgresql
+sudo apt install build-essential python2.7 python2.7-dev git curl rabbitmq-server postgresql
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python get-pip.py
 rm get-pip.py
@@ -84,13 +84,13 @@ If you open another terminal, please enter in the virtualenv with the command `s
 ###### 5.1. Method 1 (fast but unsecure)
 + Edit file the `var/db/create_user_and_db.sql` and update the user and password values (default values are: PATROWL_DB_USER and PATROWL_DB_PASSWD_TO_CHANGE)
 
-####### 5.1.1. MacOS
+###### 5.1.1. MacOS
 + Execute the SQL script:
 ```
 psql < var/db/create_user_and_db.sql
 ```
 
-####### 5.1.2. Ubuntu 16.04/18.04 LTS
+###### 5.1.2. Ubuntu 16.04/18.04 LTS
 + Execute the SQL script:
 ```
 sudo -u postgres psql < var/db/create_user_and_db.sql
@@ -161,7 +161,7 @@ Configuration files are the JSON files and parameters are quite straightforward.
 Please refer to the README files from each engine directory.
 
 ### Deploy Engines from Docker Image
-#### 2. Build the Docker images
+#### 1. Build the Docker images
 + Build the Docker images separately. Ex:
 ```
 cd engines/virustotal
@@ -171,7 +171,7 @@ docker build --quiet --tag "patrowl-virustotal" .
 ```
 scripts/build-docker-engines.sh
 ```
-#### 3. Run Docker containers
+#### 2. Run Docker containers
 + Start the docker containers separately (be careful to correctly map your JSON configuration files as a volume). Ex:
 ```
 docker run -d --rm -p 5101:5001 --name="nmap-docker-001" patrowl-nmap
