@@ -128,6 +128,11 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
++ Collect static files (produciton mode - files copied to /staticfiles/):
+```
+python manage.py collectstatic
+```
+
 + Create the Django superuser:
 ```
 python manage.py createsuperuser
@@ -142,8 +147,8 @@ python manage.py loaddata var/data/engines.EnginePolicyScope.json
 python manage.py loaddata var/data/engines.EnginePolicy.json
 ```
 
-##### 7. Start the Django backend server
-
+##### 7. Start the Django backend server (development)
+###### 7.1 Testing environment
 + Start Supervisord (Celery workers)
 ```
 supervisord -c var/etc/supervisord.conf
@@ -153,11 +158,18 @@ supervisord -c var/etc/supervisord.conf
 ```
 python manage.py runserver_plus 0.0.0.0:8000
 ```
-+ or, using Gunicorn (recommended):
++ or, using Gunicorn (recommended) :
 ```
 gunicorn app.wsgi:application [-b 0.0.0.0:8000] [--access-logfile -]
 ```
 
+###### 7.2 Production environment (Nginx serving static files)
++ Open the `app/settings.py` file and set the variable `DEBUG=True`.
++ Follow the same steps for starting the development environment (see #7.1)
++ Customize the `nginx.conf` file provided. Then start it:
+```
+[sudo] nginx -p .
+```
 
 ## Patrowl Engines deployment steps
 ### Download PatrowlEngines from GitHub
@@ -233,7 +245,6 @@ Or, start all engines using the script `start-engines.sh`:
 ```
 [sudo] scripts/start-engines.sh
 ```
-
 
 ## Useful commands
 + See the __[Useful Commands](useful-commands.md)__ guide
