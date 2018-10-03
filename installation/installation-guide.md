@@ -143,9 +143,19 @@ python manage.py loaddata var/data/engines.EnginePolicy.json
 ```
 
 ##### 7. Start the Django backend server
+
++ Start Supervisord (Celery workers)
 ```
 supervisord -c var/etc/supervisord.conf
+```
+
++ Then, the Django application:
+```
 python manage.py runserver_plus 0.0.0.0:8000
+```
++ or, using Gunicorn (recommended):
+```
+gunicorn app.wsgi:application [-b 0.0.0.0:8000] [--access-logfile -]
 ```
 
 
@@ -211,12 +221,17 @@ pip install -r requirements.txt
 #### 3. Start the PatrOwl engines
 Start engines one-by-one (within the current engine virtualenv). Ex:
 ```
-sudo env/bin/python engine-virustotal.py [--host=0.0.0.0] [--port=5007] [--debug] &
+[sudo] env/bin/python engine-virustotal.py [--host=0.0.0.0] [--port=5007] [--debug]
+```
+
+Or, using Gunicorn:
+```
+[sudo] gunicorn engine-virustotal:app [0.0.0.0:5007]
 ```
 
 Or, start all engines using the script `start-engines.sh`:
 ```
-sudo scripts/start-engines.sh
+[sudo] scripts/start-engines.sh
 ```
 
 
