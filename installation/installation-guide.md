@@ -18,7 +18,17 @@ PatrOwlManager uses PosgreSQL to store data. We recommend using a virtual machin
 ## PatrowlManager Deployment Steps
 
 ### Install and deploy Backend from Docker
-@In progress (Docker Compose)
+#### 1. Download PatrowlManager from GitHub
+```
+git clone https://github.com/Patrowl/PatrowlManager.git
+```
+#### 2. Deploy the backend using docker-compose
+```
+cd PatrowlManager
+docker-compose build --force-rm
+docker-compose up
+```
+> Note: Persistent volume is not set in the default db configuration. Activate this if needed (it should be !). Adjust it in the `docker-compose.yml` file
 
 ### Install and deploy Backend from Sources
 The following section contains a step-by-step guide to build PatrOwl from its sources.
@@ -26,14 +36,14 @@ The following section contains a step-by-step guide to build PatrOwl from its so
 #### 1. Install system pre-requisites
 The following software are required to download and run PatrOwl:
 + [PosgreSQL](https://www.postgresql.org/download/)
-+ [GIT](http://www.git-scm.com/downloads)
++ [Git client](http://www.git-scm.com/downloads)
 + [Python2.7](https://www.python.org/download/releases/2.7/)
 + [Python pip](https://pip.pypa.io/en/stable/installing/)
 + [Python virtualenv](https://virtualenv.pypa.io/en/stable/installation/)
 + [RabbitMQ](https://www.rabbitmq.com)
-+ [Docker](https://docs.docker.com/install/) if needed (not described below)
++ [Docker and Docker-Compose](https://docs.docker.com/install/) if needed (not described below)
 
-We strongly recommend to use the system package.
+We strongly recommend to use the system packages.
 
 ##### 2. Install required packages
 To install the requirements and run PatrOwl from sources, please follow the instructions below depending on your operating system.
@@ -240,6 +250,7 @@ Or, using Gunicorn:
 ```
 [sudo] gunicorn engine-virustotal:app [0.0.0.0:5007]
 ```
+> Useful hint: sudo is needed to start the 'nmap' engine.
 
 Or, start all engines using the script `start-engines.sh`:
 ```
