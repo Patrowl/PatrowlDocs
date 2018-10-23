@@ -12,7 +12,7 @@
 * Documentation for PatrowlManager and PatrowlEngines
   - [Installation Guide](installation/installation-guide.md)
   - [User Guide ](installation/user-guide.md)
-  - [Useful Commands](installation/userful-commands.md)
+  - [Useful Commands](installation/useful-commands.md)
 * Images
   - [Logos](images/logos/)
   - [Screenshots](images/screenshots/)
