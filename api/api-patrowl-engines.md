@@ -8,7 +8,7 @@
 
 ## Minimum Routes
 | Path        | Method | Function |
-| ------------- |----|-------------|
+| ------------ |----|-------------|
 | ```/engine/engine_name/``` | GET | Index page |
 | ```/engine/engine_name/liveness``` | GET | Liveness page (return 'OK') |
 | ```/engine/engine_name/liveness``` | GET | Readiness page (return 'OK') |
