@@ -13,6 +13,7 @@
   - [Installation Guide](installation/installation-guide.md)
   - [User Guide ](installation/user-guide.md)
   - [Useful Commands](installation/useful-commands.md)
+  - [API documentation of PatrowlEngines](api/api-patrowl-engines.md)
 * Images
   - [Logos](images/logos/)
   - [Screenshots](images/screenshots/)
@@ -30,6 +31,9 @@ Please see our [Code of conduct](https://github.com/Patrowl/PatrowlDocs/blob/mas
 Please [open an issue on GitHub](https://github.com/Patrowl/PatrowlDocs/issues) if you'd like to report a bug or request a feature. We are also available on [Gitter](https://gitter.im/Patrowl/Support) to help you out.
 
 If you need to contact the project team, send an email to <getsupport@patrowl.io>.
+
+# Security contact
+Please disclose any security-related issues or vulnerabilities by emailing security@patrowl.io, instead of using the public issue tracker.
 
 # Copyright
 Copyright (C) 2018 Nicolas MATTIOCCO  ([@MaKyOtOx](https://twitter.com/MaKyOtOx) - nicolas@greenlock.fr)
