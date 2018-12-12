@@ -213,6 +213,9 @@ docker run -d --rm -p 5101:5001 --name="nmap-docker-001" patrowl-nmap
 docker run -d --rm -p 5106:5006 --name="owldns-docker-001" -v $PWD/engines/owl_dns/owl_dns.json:/opt/patrowl-engines/owl_dns/owl_dns.json:ro patrowl-owldns
 docker run -d --rm -p 5107:5007 --name="virustotal-docker-001" -v $PWD/engines/virustotal/virustotal.json:/opt/patrowl-engines/virustotal/virustotal.json:ro patrowl-virustotal
 ```
+
+> Note: The full path to the configuration file must be passed to docker in order to correctly mount it to the container as a valid volume. That's why `$PWD` is added.
+
 + Or, using the script `start-docker-engines.sh` to start all the containers:
 ```
 scripts/start-docker-engines.sh
