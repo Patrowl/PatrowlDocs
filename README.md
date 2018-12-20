@@ -14,6 +14,7 @@
   - [User Guide ](installation/user-guide.md)
   - [Useful Commands](installation/useful-commands.md)
   - [API documentation of PatrowlEngines](api/api-patrowl-engines.md)
+  - [API documentation of PatrowlManager](api/api-patrowl-manager.md)
 * Images
   - [Logos](images/logos/)
   - [Screenshots](images/screenshots/)
