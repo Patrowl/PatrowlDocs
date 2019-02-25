@@ -3,14 +3,14 @@ After installing and deploying PatrowlManager and at least one PatrowlEngine, yo
 
 
 ## Table of Contents
-+ [Technical overview](#technical_overview)
++ [Technical overview](#technical-overview)
 + [Assets](#assets)
-  - [Add a new asset](#add_a_new_asset)
-  - [Add new assets in bulk](#add_new_assets_in_bulk)
+  - [Add a new asset](#add-a-new-asset)
+  - [Add new assets in bulk](#add-new-assets-in-bulk)
 + [Engines](#engines)
-  - [Add a new engine](#add_a_new_engine)
+  - [Add a new engine](#add-a-new-engine)
 + [Scans](#scans)
-  - [Add a new scan](#add_a_new_scan)
+  - [Add a new scan](#add-a-new-scan)
 
 
 ## Technical overview
@@ -46,7 +46,7 @@ Parameters | Description | Examples
 2. The following form will be available:
 ![Create new assets in bulk - Form](../images/userguide/addNewAssetBulk-2.png)
 
-The CSV template is available here: [Template](https://github.com/Patrowl/PatrowlManager/blob/master/var/data/assets_bulk_import_template.csv)
+The CSV template is available here: [Template](https://github.com/Patrowl/PatrowlManager/blob/master/static/tmpl/assets_bulk_import_template.csv)
 
 ## Engines
 ### Add a new Engine

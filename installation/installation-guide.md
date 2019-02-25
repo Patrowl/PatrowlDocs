@@ -18,11 +18,15 @@ PatrOwlManager uses PosgreSQL to store data. We recommend using a virtual machin
 ## PatrowlManager Deployment Steps
 
 ### Install and deploy Backend from Docker
-#### 1. Download PatrowlManager from GitHub
+#### 1. Install system pre-requisites
+Install Docker:
++ [Docker and Docker-Compose](https://docs.docker.com/install/)
+
+#### 2. Download PatrowlManager from GitHub
 ```
 git clone https://github.com/Patrowl/PatrowlManager.git
 ```
-#### 2. Deploy the backend using docker-compose
+#### 3. Deploy the backend using docker-compose
 ```
 cd PatrowlManager
 docker-compose build --force-rm
@@ -30,7 +34,7 @@ docker-compose up
 ```
 > Note: Persistent volume is not set in the default db configuration. Activate this if needed (it should be !). Adjust it in the `docker-compose.yml` file
 
-#### 3. Use it
+#### 4. Use it
 Go to http://localhost:8083/ and sign in with default admin credentials : admin/Bonjour1!
 
 ### Install and deploy Backend from Sources
@@ -44,7 +48,7 @@ The following software are required to download and run PatrOwl:
 + [Python pip](https://pip.pypa.io/en/stable/installing/)
 + [Python virtualenv](https://virtualenv.pypa.io/en/stable/installation/)
 + [RabbitMQ](https://www.rabbitmq.com)
-+ [Docker and Docker-Compose](https://docs.docker.com/install/) if needed (not described below)
+
 
 We strongly recommend to use the system packages.
 
@@ -125,7 +129,7 @@ CREATE DATABASE "patrowl_db" WITH OWNER "PATROWL_DB_USER";
 ```
 ALTER ROLE "PATROWL_DB_USER" SET client_encoding TO 'utf8';
 ALTER ROLE "PATROWL_DB_USER" SET default_transaction_isolation TO 'read committed';
-ALTER ROLE "PATROWL_DB_USER" SET timezone TO 'UTC';
+-- ALTER ROLE "PATROWL_DB_USER" SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE "patrowl_db" TO "PATROWL_DB_USER";
 ```
 
@@ -195,7 +199,7 @@ cd PatrowlEngines
 Configuration files are the JSON files and parameters are quite straightforward. For each engine, copy the  `<engine_name>.json.sample` file to `<engine_name>.json` and edit the new file.
 Please refer to the README files from each engine directory.
 
-### Deploy Engines from Docker Image
+### Deploy Engines from Docker Images
 #### 1. Build the Docker images
 + Build the Docker images separately. Ex:
 ```
@@ -206,7 +210,7 @@ docker build --quiet --tag "patrowl-virustotal" .
 ```
 scripts/build-docker-engines.sh
 ```
-#### 2. Run Docker containers
+#### 2. Run local Docker containers
 + Start the docker containers separately (be careful to correctly map your JSON configuration files as a volume). Ex:
 ```
 docker run -d --rm -p 5101:5001 --name="nmap-docker-001" patrowl-nmap
