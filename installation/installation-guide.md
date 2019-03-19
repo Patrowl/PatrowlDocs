@@ -181,7 +181,7 @@ gunicorn app.wsgi:application [-b 0.0.0.0:8000] [--access-logfile -]
 ```
 
 ###### 7.2 Production environment (Nginx serving static files)
-+ Open the `app/settings.py` file and set the variable `DEBUG=True`.
++ Open the `app/settings.py` file and set the variable `DEBUG=False`.
 + Follow the same steps for starting the development environment (see #7.1)
 + Customize the `nginx.conf` file provided. Then start it:
 ```
@@ -258,7 +258,7 @@ Start engines one-by-one (within the current engine virtualenv). Ex:
 
 Or, using Gunicorn:
 ```
-[sudo] gunicorn engine-virustotal:app [0.0.0.0:5007]
+[sudo] gunicorn engine-virustotal:app [-b 0.0.0.0:5007]
 ```
 > Useful hint: sudo is needed to start the 'nmap' engine.
 
