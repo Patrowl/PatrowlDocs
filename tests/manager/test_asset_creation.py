@@ -7,6 +7,7 @@ PATROWL_AUTH_TOKEN = os.environ.get('PATROWL_AUTH_TOKEN', '5a13cd99aaa7a4aeafe26
 s = requests.Session()
 s.headers['Authorization'] = 'Token {}'.format(PATROWL_AUTH_TOKEN)
 
+
 def get_assets():
     r = s.get(PATROWL_ENDPOINT+"/assets/api/v1/list")
     print r.text

@@ -44,7 +44,7 @@ The following section contains a step-by-step guide to build PatrOwl from its so
 The following software are required to download and run PatrOwl:
 + [PosgreSQL](https://www.postgresql.org/download/)
 + [Git client](http://www.git-scm.com/downloads)
-+ [Python2.7](https://www.python.org/download/releases/2.7/)
++ [Python3](https://www.python.org/download/releases/2/)
 + [Python pip](https://pip.pypa.io/en/stable/installing/)
 + [Python virtualenv](https://virtualenv.pypa.io/en/stable/installation/)
 + [RabbitMQ](https://www.rabbitmq.com)
@@ -59,23 +59,23 @@ To install the requirements and run PatrOwl from sources, please follow the inst
 Using `brew`:
 ```
 brew update
-brew install postgres python rabbitmq
+brew install postgres python3 rabbitmq
 python -m ensurepip
 pip install virtualenv
 ```
 
 ###### 2.2. Ubuntu 16.04/18.04 LTS
 ```
-sudo apt install build-essential python2.7 python2.7-dev git curl rabbitmq-server postgresql
+sudo apt install build-essential python3 python3-dev git curl rabbitmq-server postgresql
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-sudo python get-pip.py
+sudo python3 get-pip.py
 rm get-pip.py
-sudo pip install virtualenv
+sudo pip3 install virtualenv
 ```
 
 ###### 2.3. CentOS/RHEL
 ```
-yum install -y git python python-pip python-virtualenv rabbitmq-server postgresql
+yum install -y git python3 python3-pip python3-virtualenv rabbitmq-server postgresql
 ```
 
 ##### 3. Download PatrowlManager from GitHub
@@ -86,16 +86,16 @@ git clone https://github.com/Patrowl/PatrowlManager.git
 ##### 4. Install python dependencies
 ```
 cd PatrowlManager
-python2.7 -m virtualenv env
-source env/bin/activate
+python3 -m virtualenv env3
+source env3/bin/activate
 pip install -r requirements.txt
 ```
-> Note 1: if `python2.7 -m virtualenv env` does not work, please consider the command `virtualenv env` but ensure that Python2 is selected.  
-> Note 2: Be careful, next commands MUST be launched within the python virtual environment. The prefix `(env)` should appear in the command prompt. Ex:
+> Note 1: if `python3 -m virtualenv env` does not work, please consider the command `virtualenv env` but ensure that Python 3 is selected.  
+> Note 2: Be careful, next commands MUST be launched within the python virtual environment. The prefix `(env3)` should appear in the command prompt. Ex:
 ```
-(env) GreenLock@GL01:PatrowlManager$ ls
+(env3) GreenLock@GL01:PatrowlManager$ ls
 ```
-If you open another terminal, please enter in the virtualenv with the command `source env/bin/activate`. If you want to exit the virtual environment, use the command `deactivate`.
+If you open another terminal, please enter in the virtualenv with the command `source env3/bin/activate`. If you want to exit the virtual environment, use the command `deactivate`.
 
 ##### 5. Create the PosgreSQL database
 ###### 5.1. Method 1 (fast but unsecure)
@@ -228,11 +228,11 @@ scripts/start-docker-engines.sh
 ### Deploy Engines from Sources
 ##### 1. Install required packages
 ```
-sudo apt install build-essential python2.7-dev
+sudo apt install build-essential python3-dev
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-sudo python get-pip.py
+sudo python3 get-pip.py
 rm get-pip.py
-sudo pip install virtualenv
+sudo pip3 install virtualenv
 ```
 
 ##### 2. Install python dependencies
@@ -245,15 +245,15 @@ cd scripts
 or, install manually dependencies for each engine. Ex:
 ```
 cd engines/nmap
-python2.7 -m virtualenv env
-source env/bin/activate
-pip install -r requirements.txt
+python3 -m virtualenv env3
+source env3/bin/activate
+pip3 install -r requirements.txt
 ```
 
 #### 3. Start the PatrOwl engines
 Start engines one-by-one (within the current engine virtualenv). Ex:
 ```
-[sudo] env/bin/python engine-virustotal.py [--host=0.0.0.0] [--port=5007] [--debug]
+[sudo] env3/bin/python engine-virustotal.py [--host=0.0.0.0] [--port=5007] [--debug]
 ```
 
 Or, using Gunicorn:
