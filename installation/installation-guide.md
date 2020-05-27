@@ -4,19 +4,18 @@ Before installing PatrOwl, you need to choose the installation option which suit
 ## Table of Contents
 + [Hardware Pre-requisites](#hardware-pre-requisites)
 + [PatrowlManager Deployment Steps](#patrowlmanager-deployment-steps)
-  - [Install and deploy PatrOwl-Manager Backend from Docker](#install-and-deploy-backend-from-docker)
-  - [Or, install and deploy Backend from Sources](#install-and-deploy-backend-from-sources)
-+ [Patrowl Engines Deployment Steps](#patrowl-engines-deployment-steps)
+  - [Install and deploy PatrowlManager Backend from Docker](#install-and-deploy-backend-from-docker)
+  - [Or, install and deploy PatrowlManager backend from Sources](#install-and-deploy-backend-from-sources)
++ [PatrowlEngines Deployment Steps](#patrowl-engines-deployment-steps)
   - [Download PatrowlEngines from GitHub](#download-patrowlengines-from-gitHub)
-  - [Deploy PatrOwl Engines from Docker images](#deploy-engines-from-docker-images)
-  - [Or, deploy Engines from Sources](#deploy-engines-from-sources)
+  - [Deploy PatrowlEngines from Docker images](#deploy-engines-from-docker-images)
+  - [Or, deploy PatrowlEngines from Sources](#deploy-engines-from-sources)
 + [Useful Commands](#useful-commands)
 
 ## Hardware Pre-requisites
 PatrOwlManager uses PosgreSQL to store data. We recommend using a virtual machine with at least 4vCPU, 8 GB of RAM and 60 GB of disk. You can also use a physical machine with similar specifications.
 
 ## PatrowlManager Deployment Steps
-
 ### Install and deploy Backend from Docker
 #### 1. Install system pre-requisites
 Install Docker:
@@ -32,7 +31,9 @@ cd PatrowlManager
 docker-compose build --force-rm
 docker-compose up
 ```
-> Note: Persistent volume is not set in the default db configuration. Activate this if needed (it should be !). Adjust it in the `docker-compose.yml` file
+> Note 1: Persistent volume is not set in the default db configuration. Activate this if needed (it should be !). Adjust it in the `docker-compose.yml` file
+
+> Note 2: Want pre-configured engines ? Run `docker-compose up -f docker-compose.with-engines.sh` instead
 
 #### 4. Use it
 Go to http://localhost:8083/ and sign in with default admin credentials : admin/Bonjour1!
