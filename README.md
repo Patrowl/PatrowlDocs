@@ -37,4 +37,4 @@ If you need to contact the project team, send an email to <getsupport@patrowl.io
 Please disclose any security-related issues or vulnerabilities by emailing security@patrowl.io, instead of using the public issue tracker.
 
 # Copyright
-Copyright (C) 2018-2019 Nicolas MATTIOCCO ([@MaKyOtOx](https://twitter.com/MaKyOtOx) - nicolas@greenlock.fr)
+Copyright (C) 2018-2020 Nicolas MATTIOCCO ([@MaKyOtOx](https://twitter.com/MaKyOtOx) - nicolas@greenlock.fr)
