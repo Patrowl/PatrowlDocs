@@ -156,6 +156,12 @@ python manage.py collectstatic
 python manage.py createsuperuser
 ```
 > Please keep these credentials in a safe place. This account will be used for the first login on the PatrowlManager application
+> Tip: You can also use the following script: `python manage.py shell < var/bin/create_default_admin.py`
+
++ Create the default team (organization):
+```
+python manage.py shell < var/bin/create_default_team.py
+```
 
 + Populate the db with default data (AssetCategory, EnginePolicy, ...):
 ```
