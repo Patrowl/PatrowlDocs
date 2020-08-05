@@ -13,7 +13,7 @@ Before installing PatrOwl, you need to choose the installation option which suit
 + [Useful Commands](#useful-commands)
 
 ## Hardware Pre-requisites
-PatrOwlManager uses PosgreSQL to store data. We recommend using a virtual machine with at least 4vCPU, 8 GB of RAM and 60 GB of disk. You can also use a physical machine with similar specifications.
+PatrowlManager uses PosgreSQL to store data. We recommend using a virtual machine with at least 4vCPU, 8 GB of RAM and 60 GB of disk. You can also use a physical machine with similar specifications.
 
 ## PatrowlManager Deployment Steps
 ### Install and deploy Backend from Docker
@@ -45,7 +45,7 @@ The following section contains a step-by-step guide to build PatrOwl from its so
 The following software are required to download and run PatrOwl:
 + [PosgreSQL](https://www.postgresql.org/download/)
 + [Git client](http://www.git-scm.com/downloads)
-+ [Python3](https://www.python.org/download/releases/2/)
++ [Python3](https://www.python.org/downloads/release/python-385/)
 + [Python pip](https://pip.pypa.io/en/stable/installing/)
 + [Python virtualenv](https://virtualenv.pypa.io/en/stable/installation/)
 + [RabbitMQ](https://www.rabbitmq.com)
@@ -67,7 +67,7 @@ pip install virtualenv
 
 ###### 2.2. Ubuntu 16.04/18.04 LTS
 ```
-sudo apt install build-essential python3 python3-dev git curl rabbitmq-server postgresql
+sudo apt install build-essential python3 python3-dev git curl rabbitmq-server postgresql postgresql-client
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python3 get-pip.py
 rm get-pip.py
@@ -76,7 +76,7 @@ sudo pip3 install virtualenv
 
 ###### 2.3. CentOS/RHEL
 ```
-yum install -y git python3 python3-pip python3-virtualenv rabbitmq-server postgresql
+yum install -y git python3 python3-pip python3-virtualenv rabbitmq-server postgresql postgresql-client
 ```
 
 ##### 3. Download PatrowlManager from GitHub
@@ -130,7 +130,6 @@ CREATE DATABASE "patrowl_db" WITH OWNER "PATROWL_DB_USER";
 ```
 ALTER ROLE "PATROWL_DB_USER" SET client_encoding TO 'utf8';
 ALTER ROLE "PATROWL_DB_USER" SET default_transaction_isolation TO 'read committed';
--- ALTER ROLE "PATROWL_DB_USER" SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE "patrowl_db" TO "PATROWL_DB_USER";
 ```
 
@@ -146,7 +145,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-+ Collect static files (produciton mode - files copied to /staticfiles/):
++ Collect static files (production mode - files copied to /staticfiles/):
 ```
 python manage.py collectstatic
 ```
@@ -182,7 +181,7 @@ supervisord -c var/etc/supervisord.conf
 ```
 python manage.py runserver_plus 0.0.0.0:8000
 ```
-+ or, using Gunicorn (recommended) :
++ or, using Gunicorn (recommended):
 ```
 gunicorn app.wsgi:application [-b 0.0.0.0:8000] [--access-logfile -]
 ```

@@ -11,6 +11,7 @@
 # What's the content in this repository ?
 * Documentation for PatrowlManager and PatrowlEngines
   - [Installation Guide](installation/installation-guide.md)
+  - [Update Guide](installation/update-guide.md)
   - [User Guide ](installation/user-guide.md)
   - [Useful Commands](installation/useful-commands.md)
   - [API documentation of PatrowlEngines](api/api-patrowl-engines.md)
