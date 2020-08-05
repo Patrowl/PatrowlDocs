@@ -33,7 +33,7 @@ docker-compose up
 ```
 > Note 1: Persistent volume is not set in the default db configuration. Activate this if needed (it should be !). Adjust it in the `docker-compose.yml` file
 
-> Note 2: Want pre-configured engines ? Run `docker-compose up -f docker-compose.with-engines.sh` instead
+> Note 2: Want pre-configured engines ? Run `docker-compose -f docker-compose.with-engines.sh up` instead
 
 #### 4. Use it
 Go to http://localhost:8083/ and sign in with default admin credentials : admin/Bonjour1!
