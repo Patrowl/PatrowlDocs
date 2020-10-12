@@ -19,7 +19,7 @@ pg_dump -U <postgres_db_username> -W -F c patrowl_db -f /opt/patrowlmanager/save
 - [ ] Update the application files: `git fetch && git pull`
 - [ ] Install potential python module updates: `pip install -U -r requirements.txt`
 - [ ] Update `app/settings.py` from the sample with potential new/old configuration variables
-- [ ] Update static files: `python manage.py collectstatic —noinput`
+- [ ] Update static files: `python manage.py collectstatic --noinput`
 - [ ] Update DB schema (if already created): `var/bin/update_db_migrations.sh`
 - [ ] Prepare potential changes in model defintitions (plz respect the order) :
 ```
