@@ -16,18 +16,19 @@
   - [Useful Commands](installation/useful-commands.md)
   - [API documentation of PatrowlEngines](api/api-patrowl-engines.md)
   - [API documentation of PatrowlManager](api/api-patrowl-manager.md)
+  - [API documentation of PatrowlHears](api/api-patrowl-hears.md)
 * Images
   - [Logos](images/logos/)
   - [Screenshots](images/screenshots/)
 
 # License
-PatrOwl is an open source and free software released under the [AGPL](https://github.com/Patrowl/PatrowlDocs/blob/master/LICENSE) (Affero General Public License). We are committed to ensure that PatrOwl will remain a free and open source project on the long-run.
+The Patrowl community provides scalable, free and open-source solutions for orchestrating Security Operations and providing Threat Intelligence feeds. We are committed to ensure that Patrowl contributions will remain free and open source projects on the long-run.
 
 # Updates
-Information, news and updates are regularly posted on [Patrowl.io  Twitter account](https://twitter.com/patrowl_io) and on [the  blog](https://blog.patrowl.io/).
+Information, news and updates are regularly posted on [Patrowl.io Twitter account](https://twitter.com/patrowl_io) and on [the  blog](https://blog.patrowl.io/).
 
 # Contributing
-Please see our [Code of conduct](https://github.com/Patrowl/PatrowlDocs/blob/master/docs/support/code_of_conduct.md). We welcome your contributions. Please feel free to fork the code, play with it, make some patches and send us pull requests via [issues](https://github.com/Patrowl/PatrowlManager/issues).
+Please see our [Code of conduct](https://github.com/Patrowl/PatrowlDocs/blob/master/docs/support/code_of_conduct.md). We welcome your contributions. Please feel free to fork the code, play with it, make some patches and send us pull requests via [issues](https://github.com/Patrowl/PatrowlDocs/issues).
 
 # Support
 Please [open an issue on GitHub](https://github.com/Patrowl/PatrowlDocs/issues) if you'd like to report a bug or request a feature. We are also available on [Gitter](https://gitter.im/Patrowl/Support) to help you out.
@@ -38,4 +39,4 @@ If you need to contact the project team, send an email to <getsupport@patrowl.io
 Please disclose any security-related issues or vulnerabilities by emailing security@patrowl.io, instead of using the public issue tracker.
 
 # Copyright
-Copyright (C) 2018-2020 Nicolas MATTIOCCO ([@MaKyOtOx](https://twitter.com/MaKyOtOx) - nicolas@greenlock.fr)
+Copyright (C) 2018-2020 Nicolas MATTIOCCO ([@MaKyOtOx](https://twitter.com/MaKyOtOx) - nicolas@patrowl.io)
