@@ -9,14 +9,18 @@
 **PatrowlEngines** is the engine framework and the supported list of engines performing the operations (scans, searches, API calls, ...) on due time.
 
 # What's the content in this repository ?
-* Documentation for PatrowlManager and PatrowlEngines
-  - [Installation Guide](installation/installation-guide.md)
-  - [Update Guide](installation/update-guide.md)
-  - [User Guide ](installation/user-guide.md)
-  - [Useful Commands](installation/useful-commands.md)
-  - [API documentation of PatrowlEngines](api/api-patrowl-engines.md)
-  - [API documentation of PatrowlManager](api/api-patrowl-manager.md)
-  - [API documentation of PatrowlHears](api/api-patrowl-hears.md)
+* Documentation for Patrowl solutions: PatrowlManager, PatrowlEngines and PatrowlHears
+  - PatrowlManager:
+    - [Installation Guide](installation/installation-guide.md)
+    - [Update Guide](installation/update-guide.md)
+    - [User Guide ](installation/user-guide.md)
+    - [Useful Commands](installation/useful-commands.md)
+    - [API documentation of PatrowlManager](api/api-patrowl-manager.md)
+    - [Settings](installation/patrowlmanager-settings.md)
+  - PatrowlEngines:
+    - [API documentation of PatrowlEngines](api/api-patrowl-engines.md)
+  - PatrowlHears:
+    - [API documentation of PatrowlHears](api/api-patrowl-hears.md)
 * Images
   - [Logos](images/logos/)
   - [Screenshots](images/screenshots/)
@@ -25,7 +29,7 @@
 The Patrowl community provides scalable, free and open-source solutions for orchestrating Security Operations and providing Threat Intelligence feeds. We are committed to ensure that Patrowl contributions will remain free and open source projects on the long-run.
 
 # Updates
-Information, news and updates are regularly posted on [Patrowl.io Twitter account](https://twitter.com/patrowl_io) and on [the  blog](https://blog.patrowl.io/).
+Information, news and updates are regularly posted on [Patrowl.io Twitter account](https://twitter.com/patrowl_io).
 
 # Contributing
 Please see our [Code of conduct](https://github.com/Patrowl/PatrowlDocs/blob/master/docs/support/code_of_conduct.md). We welcome your contributions. Please feel free to fork the code, play with it, make some patches and send us pull requests via [issues](https://github.com/Patrowl/PatrowlDocs/issues).
@@ -39,4 +43,4 @@ If you need to contact the project team, send an email to <getsupport@patrowl.io
 Please disclose any security-related issues or vulnerabilities by emailing security@patrowl.io, instead of using the public issue tracker.
 
 # Copyright
-Copyright (C) 2018-2020 Nicolas MATTIOCCO ([@MaKyOtOx](https://twitter.com/MaKyOtOx) - nicolas@patrowl.io)
+Copyright (C) 2018-2021 Nicolas MATTIOCCO ([@MaKyOtOx](https://twitter.com/MaKyOtOx) - nicolas@patrowl.io)
